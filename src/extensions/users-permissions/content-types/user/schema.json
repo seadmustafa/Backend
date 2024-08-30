@@ -1,0 +1,153 @@
+{
+  "kind": "collectionType",
+  "collectionName": "up_users",
+  "info": {
+    "name": "user",
+    "description": "",
+    "singularName": "user",
+    "pluralName": "users",
+    "displayName": "User"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "minLength": 3,
+      "required": true,
+      "configurable": false
+    },
+    "username": {
+      "type": "string",
+      "minLength": 6,
+      "unique": true,
+      "configurable": false,
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "minLength": 6,
+      "unique": true,
+      "configurable": false,
+      "required": true
+    },
+    "provider": {
+      "type": "string",
+      "configurable": false
+    },
+    "password": {
+      "type": "password",
+      "minLength": 6,
+      "configurable": false,
+      "private": true,
+      "searchable": false
+    },
+    "resetPasswordToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true,
+      "searchable": false
+    },
+    "confirmationToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true,
+      "searchable": false
+    },
+    "confirmed": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "blocked": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "role": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.role",
+      "inversedBy": "users",
+      "configurable": false
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "forum_comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::forum-comment.forum-comment",
+      "mappedBy": "user"
+    },
+    "forum_posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::forum-post.forum-post",
+      "mappedBy": "user"
+    },
+    "isVerified": {
+      "type": "boolean",
+      "default": false
+    },
+    "onboarded": {
+      "type": "boolean",
+      "default": false
+    },
+    "scope": {
+      "type": "enumeration",
+      "enum": ["pwa", "portal", "all"],
+      "private": true,
+      "default": "pwa",
+      "required": false
+    },
+    "liked_posts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::forum-post.forum-post",
+      "mappedBy": "users_liked"
+    },
+    "onboarding_information": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::onboarding-information.onboarding-information",
+      "inversedBy": "user"
+    },
+    "reviewed_reports": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::report.report",
+      "mappedBy": "reviewer"
+    },
+    "submitted_reports": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::report.report",
+      "mappedBy": "compiler"
+    },
+    "news_posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::news-post.news-post",
+      "mappedBy": "publisher"
+    },
+    "restaurant_reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::restaurant-review.restaurant-review",
+      "mappedBy": "user"
+    },
+    "isViewedCommercial": {
+      "type": "boolean",
+      "default": false
+    },
+    "resetPasswordTokenExpire": {
+      "type": "datetime",
+      "private": true
+    }
+  }
+}

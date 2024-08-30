@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "religions",
+  "info": {
+    "singularName": "religion",
+    "pluralName": "religions",
+    "displayName": "Religion",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Religion": {
+      "type": "string"
+    },
+    "roles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.role",
+      "mappedBy": "religion"
+    }
+  }
+}

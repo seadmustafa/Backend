@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "log_blockchains",
+  "info": {
+    "singularName": "log-blockchain",
+    "pluralName": "log-blockchains",
+    "displayName": "LogBlockchain",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "blockchainId": {
+      "type": "string"
+    },
+    "channel": {
+      "type": "enumeration",
+      "enum": [
+        "OnboardingInformation",
+        "HalaCertificates",
+        "SupplyChainRecords"
+      ]
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "scan_histories",
+  "info": {
+    "singularName": "scan-history",
+    "pluralName": "scan-histories",
+    "displayName": "ScanHistory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "record": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::supply-chain-record.supply-chain-record"
+    }
+  }
+}

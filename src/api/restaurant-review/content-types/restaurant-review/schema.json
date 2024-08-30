@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "restaurant_reviews",
+  "info": {
+    "singularName": "restaurant-review",
+    "pluralName": "restaurant-reviews",
+    "displayName": "RestaurantReviews",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "rating": {
+      "type": "integer",
+      "max": 5,
+      "min": 1
+    },
+    "description": {
+      "type": "text"
+    },
+    "evidence": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "restaurant_reviews"
+    },
+    "restaurant": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::restaurant.restaurant",
+      "inversedBy": "reviews"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "halal_certificates",
+  "info": {
+    "singularName": "halal-certificate",
+    "pluralName": "halal-certificates",
+    "displayName": "HalalCertificates",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "certificationBodyId": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "certificatePaths": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "requestId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["Pending", "Approved", "Rejected"]
+    },
+    "auditCheck": {
+      "type": "boolean"
+    },
+    "siteAuditVisitDate": {
+      "type": "date"
+    },
+    "details": {
+      "type": "text"
+    },
+    "evidencePaths": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "reasonReject": {
+      "type": "text"
+    },
+    "createdRequestId": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "blockchainId": {
+      "type": "string"
+    },
+    "certificationBodyName": {
+      "type": "string"
+    },
+    "certificationBodyIdOther": {
+      "type": "string"
+    },
+    "expiryDate": {
+      "type": "date"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["Upload", "Request"]
+    }
+  }
+}

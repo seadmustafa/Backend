@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sensitive_words",
+  "info": {
+    "singularName": "sensitive-word",
+    "pluralName": "sensitive-words",
+    "displayName": "SensitiveWords",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "words": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 1,
+      "maxLength": 30
+    },
+    "forum_posts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::forum-post.forum-post",
+      "private": true,
+      "inversedBy": "sensitive_words"
+    }
+  }
+}

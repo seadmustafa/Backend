@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news_post_categories",
+  "info": {
+    "singularName": "news-post-category",
+    "pluralName": "news-post-categories",
+    "displayName": "NewsPostCategory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "maxLength": 30,
+      "required": true,
+      "unique": true,
+      "minLength": 1
+    },
+    "news_posts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::news-post.news-post",
+      "inversedBy": "categories"
+    }
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "kind": "collectionType",
+  "collectionName": "supply_chain_records",
+  "info": {
+    "singularName": "supply-chain-record",
+    "pluralName": "supply-chain-records",
+    "displayName": "SupplyChainRecords",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "batchId": {
+      "type": "string",
+      "unique": true
+    },
+    "healthConditions": {
+      "type": "text"
+    },
+    "oneStrike": {
+      "type": "boolean"
+    },
+    "inWeight": {
+      "type": "string"
+    },
+    "outWeight": {
+      "type": "string"
+    },
+    "vehicleID": {
+      "type": "string"
+    },
+    "route": {
+      "type": "text"
+    },
+    "productName": {
+      "type": "string"
+    },
+    "productDetails": {
+      "type": "text"
+    },
+    "productionDate": {
+      "type": "date"
+    },
+    "expirationDate": {
+      "type": "date"
+    },
+    "qrCode": {
+      "type": "text"
+    },
+    "deliveryStatus": {
+      "type": "enumeration",
+      "enum": ["Prepared", "Ongoing", "Received", "Rejected"],
+      "default": "Prepared"
+    },
+    "ownership": {
+      "type": "boolean",
+      "default": false
+    },
+    "GTIN": {
+      "type": "string"
+    },
+    "receiver": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "sender": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "supplyChainId": {
+      "type": "string"
+    },
+    "supplyChainOrderNumber": {
+      "type": "integer"
+    },
+    "detailsOnAnimalFeed": {
+      "type": "text"
+    },
+    "detailsOnAnimalFeedFiles": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "vaccinationDetails": {
+      "type": "text"
+    },
+    "vaccinationDetailsFiles": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "healthConditionsFiles": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "butchererDetailsFiles": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "butchererDetails": {
+      "type": "text"
+    },
+    "butcheringProcess": {
+      "type": "text"
+    },
+    "butcheringProcessFiles": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "shippingDetails": {
+      "type": "text"
+    },
+    "shippingDetailsFiles": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "storageCondition": {
+      "type": "text"
+    },
+    "storageConditionFiles": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "productImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "reasonReject": {
+      "type": "string"
+    },
+    "reasonRejectFiles": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "blockchainId": {
+      "type": "string"
+    },
+    "departureTime": {
+      "type": "datetime"
+    },
+    "arrivalTime": {
+      "type": "datetime"
+    },
+    "arrivalBatchId": {
+      "type": "string"
+    },
+    "departure_histories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::departure-history.departure-history"
+    },
+    "productType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product-type.product-type"
+    },
+    "humidityLevels": {
+      "type": "string"
+    },
+    "vehicleFleetSize": {
+      "type": "string"
+    },
+    "temperature": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "string"
+    }
+  }
+}

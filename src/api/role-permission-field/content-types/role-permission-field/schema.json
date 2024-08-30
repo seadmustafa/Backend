@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "role_permission_fields",
+  "info": {
+    "singularName": "role-permission-field",
+    "pluralName": "role-permission-fields",
+    "displayName": "RolePermissionField",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "function": {
+      "type": "enumeration",
+      "enum": ["Onboarding", "SupplyChainRecord", "HighLightedInformation"]
+    },
+    "key": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}

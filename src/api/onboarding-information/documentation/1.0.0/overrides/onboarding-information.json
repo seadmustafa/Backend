@@ -1,0 +1,524 @@
+{
+  "info": { "version": "1.0.0" },
+  "paths": {
+    "/onboarding-informations/list-certificate-reviewer": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": "number",
+                            "username": "string",
+                            "email": "string",
+                            "name": "string",
+                            "onboarding_information": "object"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": 1,
+                      "username": "foo.bar",
+                      "email": "foobar@strapi.io",
+                      "name": "foobar",
+                      "onboarding_information": {}
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Onboarding-information"],
+        "parameters": [],
+        "operationId": "get/onboarding-informations/list-certificate-reviewer"
+      }
+    },
+    "/onboarding-informations": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnboardingInformationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Onboarding-information"],
+        "parameters": [],
+        "operationId": "post/onboarding-informations",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "organizationName": {
+                        "type": "string"
+                      },
+                      "brandLogo": {
+                        "type": "string"
+                      },
+                      "representativeName": {
+                        "type": "string"
+                      },
+                      "farmType": {
+                        "type": "string",
+                        "enum": ["Crop"]
+                      },
+                      "certificationDate": {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      "butcherLicense": {
+                        "type": "boolean"
+                      },
+                      "videoRecording": {
+                        "type": "boolean"
+                      },
+                      "meatFragmentation": {
+                        "type": "boolean"
+                      },
+                      "inspectionStatus": {
+                        "type": "string",
+                        "enum": ["Pass"]
+                      },
+                      "accreditationStatus": {
+                        "type": "string",
+                        "enum": ["Accredited"]
+                      },
+                      "accreditationExpiration": {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      "regulationDate": {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      "enforcementStatus": {
+                        "type": "string",
+                        "enum": ["Compliant"]
+                      },
+                      "registrationDate": {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      "license": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "user": {
+                        "type": "string"
+                      },
+                      "contactInformation": {
+                        "type": "string"
+                      },
+                      "enforcementActions": {
+                        "type": "string"
+                      },
+                      "location": {
+                        "type": "string"
+                      },
+                      "regulationsAndPolicies": {
+                        "type": "string"
+                      },
+                      "certificateInfo": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "listOfAccreditedCertificationBodies": {
+                        "type": "string"
+                      },
+                      "licenseId": {
+                        "type": "string"
+                      },
+                      "productType": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "productType": {
+                              "type": "string"
+                            },
+                            "productIngredients": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "farmSize": {
+                        "type": "string"
+                      },
+                      "capacity": {
+                        "type": "string"
+                      },
+                      "halalCertificate": {
+                        "type": "object",
+                        "properties": {
+                          "certificationBodyId": {
+                            "type": "number"
+                          },
+                          "certificationBodyIdOther": {
+                            "type": "string"
+                          },
+                          "certificationBodyName": {
+                            "type": "string"
+                          },
+                          "expiryDate": {
+                            "type": "string"
+                          },
+                          "certificatePaths": {
+                            "items": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/onboarding-informations/{id}": {
+      "put": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnboardingInformationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Onboarding-information"],
+        "parameters": [],
+        "operationId": "post/onboarding-informations",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "organizationName": {
+                        "type": "string"
+                      },
+                      "brandLogo": {
+                        "type": "string"
+                      },
+                      "representativeName": {
+                        "type": "string"
+                      },
+                      "farmType": {
+                        "type": "string",
+                        "enum": ["Crop"]
+                      },
+                      "certificationDate": {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      "butcherLicense": {
+                        "type": "boolean"
+                      },
+                      "videoRecording": {
+                        "type": "boolean"
+                      },
+                      "meatFragmentation": {
+                        "type": "boolean"
+                      },
+                      "inspectionStatus": {
+                        "type": "string",
+                        "enum": ["Pass"]
+                      },
+                      "accreditationStatus": {
+                        "type": "string",
+                        "enum": ["Accredited"]
+                      },
+                      "accreditationExpiration": {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      "regulationDate": {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      "enforcementStatus": {
+                        "type": "string",
+                        "enum": ["Compliant"]
+                      },
+                      "registrationDate": {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      "license": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "user": {
+                        "type": "string"
+                      },
+                      "contactInformation": {
+                        "type": "string"
+                      },
+                      "enforcementActions": {
+                        "type": "string"
+                      },
+                      "location": {
+                        "type": "string"
+                      },
+                      "regulationsAndPolicies": {
+                        "type": "string"
+                      },
+                      "certificateInfo": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "listOfAccreditedCertificationBodies": {
+                        "type": "string"
+                      },
+                      "licenseId": {
+                        "type": "string"
+                      },
+                      "productType": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "productType": {
+                              "type": "string"
+                            },
+                            "productIngredients": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "farmSize": {
+                        "type": "string"
+                      },
+                      "capacity": {
+                        "type": "string"
+                      },
+                      "halalCertificate": {
+                        "type": "object",
+                        "properties": {
+                          "certificationBodyId": {
+                            "type": "number"
+                          },
+                          "certificationBodyIdOther": {
+                            "type": "string"
+                          },
+                          "certificationBodyName": {
+                            "type": "string"
+                          },
+                          "expiryDate": {
+                            "type": "string"
+                          },
+                          "certificatePaths": {
+                            "items": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

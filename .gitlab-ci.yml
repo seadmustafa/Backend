@@ -1,0 +1,49 @@
+stages:
+  - DeployTest
+  # - DeployStag
+DeployTest:
+  stage: DeployTest
+  image: node:18-buster-slim
+  only:
+    - develop
+  script:
+    - apt-get clean
+    - apt-get update
+    - apt-get install ssh -y
+    - apt-get install openssh-server -y
+    - mkdir -p ~/.ssh
+    - ssh-keyscan -H $TEST_IP  >> ~/.ssh/known_hosts
+    - echo "$TEST_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa $TEST_USER@$TEST_IP "
+      source ~/.nvm/nvm.sh
+      && nvm use 20.13.1
+      && cd /home/$TEST_USER/projects/hala-be
+      && git checkout .
+      && git pull
+      && yarn install
+      && yarn build
+      && pm2 restart backend"
+# DeployStag:
+#   stage: DeployStag
+#   image: node:18-buster-slim
+#   only:
+#     - staging
+#   script:
+#     - apt-get clean
+#     - apt-get update
+#     - apt-get install ssh -y
+#     - apt-get install openssh-server -y
+#     - mkdir -p ~/.ssh
+#     - ssh-keyscan -H $STAGING_IP  >> ~/.ssh/known_hosts
+#     - echo "$STAGING_KEY" > ~/.ssh/id_rsa
+#     - chmod 600 ~/.ssh/id_rsa
+#     - ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa $STAGING_USER@$STAGING_IP "
+#       source ~/.nvm/nvm.sh
+#       && nvm use 20.13.1
+#       && cd /home/$STAGING_USER/projects/halal-be
+#       && git checkout .
+#       && git pull
+#       && yarn install
+#       && yarn build
+#       && pm2 restart backend"

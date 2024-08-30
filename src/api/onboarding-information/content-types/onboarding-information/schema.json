@@ -1,0 +1,123 @@
+{
+  "kind": "collectionType",
+  "collectionName": "onboarding_informations",
+  "info": {
+    "singularName": "onboarding-information",
+    "pluralName": "onboarding-informations",
+    "displayName": "OnboardingInformation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "organizationName": {
+      "type": "string"
+    },
+    "brandLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "representativeName": {
+      "type": "string"
+    },
+    "farmType": {
+      "type": "enumeration",
+      "enum": [
+        "Crop",
+        "Livestock",
+        "Mixed",
+        "Organic",
+        "SpecialtyCrop",
+        "Subsistence",
+        "Commercial",
+        "Agroforestry"
+      ]
+    },
+    "certificationDate": {
+      "type": "date"
+    },
+    "butcherLicense": {
+      "type": "boolean"
+    },
+    "videoRecording": {
+      "type": "boolean"
+    },
+    "meatFragmentation": {
+      "type": "boolean"
+    },
+    "inspectionStatus": {
+      "type": "enumeration",
+      "enum": ["Pass", "Fail", "Pending"]
+    },
+    "accreditationStatus": {
+      "type": "enumeration",
+      "enum": ["Accredited", "NonAccredited", "ConditionalAccreditation"]
+    },
+    "accreditationExpiration": {
+      "type": "date"
+    },
+    "regulationDate": {
+      "type": "date"
+    },
+    "enforcementStatus": {
+      "type": "enumeration",
+      "enum": ["Compliant", "NonCompliant", "Unknown"]
+    },
+    "registrationDate": {
+      "type": "date"
+    },
+    "license": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "onboarding_information"
+    },
+    "contactInformation": {
+      "type": "json"
+    },
+    "enforcementActions": {
+      "type": "text"
+    },
+    "location": {
+      "type": "text"
+    },
+    "regulationsAndPolicies": {
+      "type": "text"
+    },
+    "blockchainId": {
+      "type": "string"
+    },
+    "certificateInfo": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::halal-certificate.halal-certificate"
+    },
+    "listOfAccreditedCertificationBodies": {
+      "type": "json"
+    },
+    "licenseId": {
+      "type": "string"
+    },
+    "productType": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-type.product-type"
+    },
+    "farmSize": {
+      "type": "string"
+    },
+    "capacity": {
+      "type": "string"
+    }
+  }
+}
